@@ -1,0 +1,48 @@
+.body {
+    width: auto;
+    margin: 30px auto;
+}
+
+
+@keyframes tick {
+    from {
+        transform: rotateZ(0deg);
+    }
+
+    to {
+        transform: rotateZ(360deg);
+    }
+}
+
+.clock {
+    width: 450px;
+    height: 450px;
+    margin: 160px auto;
+    border: solid #008b8b 4px;
+    border-radius: 50%;
+    background-image: radial-gradient(circle, #008b8b, #008b8b 4px, white 4px);
+    position: relative;
+}
+
+.clock::before, .clock::after {
+    content: '';
+    display: block;
+    height: 45%;
+    width: 4px;
+    position: absolute;
+    left: calc(50% - 2px);
+    bottom: 50%;
+    background-color: #008b8b;
+    animation-name: tick;
+    animation-duration: 6s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    transform-origin: center bottom;
+}
+
+.clock::after {
+    height: 40%;
+    width: 6px;
+    left: calc(50% - 3px);
+    animation-duration: 72s;
+}
